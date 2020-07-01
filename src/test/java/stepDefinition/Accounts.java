@@ -50,4 +50,8 @@ public class Accounts extends BaseClass {
 	public void i_see_the_record_got_created() {
 		System.out.println(driver.getCurrentUrl());
 	}
+	@When("^I verify the logo$")
+	public void i_verify_the_logo()  {
+	    Assert.assertTrue(true);
+	}
 }

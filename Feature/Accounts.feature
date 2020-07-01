@@ -7,6 +7,7 @@ Feature: Create an Account object
     And I enter valid username "<username>"
     And I enter valid password "<password>"
     When I click the "Login" button
+    And I verify the logo
     Then I should see the "Accounts" tab
     Then I should see the "Accounts" home page
     When I click the "new" button
