@@ -54,4 +54,10 @@ public class Accounts extends BaseClass {
 	public void i_verify_the_logo()  {
 	    Assert.assertTrue(true);
 	}
+	
+	@Then("^I should see the error \"([^\"]*)\"$")
+	public void i_should_see_the_error(String expectedError) {
+	    String actualError = driver.findElement(By.className("errorMsg")).getText();
+	    Assert.assertEquals(expectedError, actualError);
+	}
 }
