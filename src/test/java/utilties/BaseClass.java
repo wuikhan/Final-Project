@@ -13,8 +13,11 @@ public class BaseClass {
 	public static void setup(String browserName) {
 		String osName = System.getProperty("os.name");
 		if (browserName.equalsIgnoreCase("Chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
-			driver = new ChromeDriver();
+			 DesiredCapabilities caps = new DesiredCapabilities();
+			 caps.setJavascriptEnabled(true); // not really needed: JS enabled by default
+			 caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+			 System.getProperty("user.dir") + "/Drivers/phantomjs");
+			 driver = new PhantomJSDriver(caps);
 			 
 //			if (osName.equals("Mac OS X")) {
 //				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
