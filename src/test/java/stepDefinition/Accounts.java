@@ -51,8 +51,9 @@ public class Accounts extends BaseClass {
 		System.out.println(driver.getCurrentUrl());
 	}
 	@When("^I verify the logo$")
-	public void i_verify_the_logo()  {
+	public void i_verify_the_logo() throws InterruptedException  {
 	    Assert.assertTrue(true);
+	    Thread.sleep(5000);
 	}
 	
 	@Then("^I should see the error \"([^\"]*)\"$")
