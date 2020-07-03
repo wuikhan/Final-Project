@@ -14,6 +14,7 @@ Feature: Create an Account object
     And I enter "BAT-1" value for "acc2" field
     When I click the "save" button
     Then I see the record got created
+    And I quit
 
     Examples: 
       | username                | password |
