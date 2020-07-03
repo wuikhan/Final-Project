@@ -8,6 +8,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 public class BaseClass {
+	
 	public static WebDriver driver;
 	public static void setup(String browserName) {
 		String osName = System.getProperty("os.name");
