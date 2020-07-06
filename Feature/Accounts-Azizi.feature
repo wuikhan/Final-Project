@@ -17,7 +17,7 @@ Feature: Create an Account object
 
     Examples: 
       | username                | password |
-      | batch03@codegator.us.qa | Pa55word |
+      | batch03@codegator.us.qa | Pa555word |
 
       
       
@@ -40,5 +40,33 @@ Feature: Create an Account object
 
     Examples: 
       | username                | password |
-      | batch03@codegator.us.qa | Pa55word |
+      | batch03@codegator.us.qa | Pa555word |
+      
+      
+      
+      
+      
+      
+    Scenario Outline: Create and Verify Account record
+    Given I open "chrome" browser
+    And I go to the "qa" environment
+    And I enter valid username "<username>"
+    And I enter valid password "<password>"
+    When I click the "Login" button
+    And I verify the logo
+    Then I should see the "Accounts" tab
+    Then I should see the "Accounts" home page
+    When I click the "new" button
+    Then I verify account source field
+  
+
+    Examples: 
+      | username                | password |
+      | batch03@codegator.us.qa | Pa555word |
+      
+      
+      
+      
+      
+      
       

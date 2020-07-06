@@ -1,8 +1,12 @@
 package stepDefinition;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -61,4 +65,41 @@ public class Accounts extends BaseClass {
 	    String actualError = driver.findElement(By.className("errorMsg")).getText();
 	    Assert.assertEquals(expectedError, actualError);
 	}
+	
+	@Then("^I verify account source field$")
+	public void i_verify_account_source_field() {
+		
+		String [] expectedValue = {"--None--", "Web", "Phone Inquiry", "Partner Referral", "Purchased List", "Other"};
+		
+		WebElement accountSource = driver.findElement(By.id("AccountSource"));
+		
+		Select select = new Select(accountSource);
+		
+		List<WebElement> actualValue = select.getOptions();
+		
+		for (int i = 0; i<actualValue.size(); i++) {
+			
+			Assert.assertEquals(expectedValue[i], actualValue.get(i).getText());
+			
+		}
+		
+	     
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
