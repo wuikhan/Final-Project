@@ -2,7 +2,9 @@ package stepDefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -60,4 +62,26 @@ public class Accounts extends BaseClass {
 	    String actualError = driver.findElement(By.className("errorMsg")).getText();
 	    Assert.assertEquals(expectedError, actualError);
 	}
+	
+	@Then("^I see the Account Soruce filed$")
+	public void i_see_the_Account_Soruce_filed()  {
+		boolean Accountsourcepresent = driver.findElement(By.id("AccountSource")).isDisplayed();
+		Assert.assertTrue(Accountsourcepresent);
+	   
+	}
+
+
+	@When("^I select \"([^\"]*)\" from the account source filed$")
+	public void i_select_from_the_account_source_filed(String AccountSource)  {
+		WebElement AcountSourceFiled =driver.findElement(By.id("AccountSource"));
+		Select AccountSourcee = new Select (AcountSourceFiled);
+		AccountSourcee.selectByValue(AccountSource);
+		
+	    
+	}
+	
+	
+	
+	
+	
 }
