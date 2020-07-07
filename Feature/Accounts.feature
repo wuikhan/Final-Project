@@ -18,7 +18,7 @@ Feature: Create an Account object
 
     Examples: 
       | username                | password |
-      | batch03@codegator.us.qa | Pa55word |
+      | batch03@codegator.us.qa | Pa555word |
 
   Scenario Outline: Create and Verify Account record
     Given I open "chrome" browser
@@ -39,4 +39,4 @@ Feature: Create an Account object
 
     Examples: 
       | username                | password |
-      | batch03@codegator.us.qa | Pa55word |
+      | batch03@codegator.us.qa | Pa555word |
