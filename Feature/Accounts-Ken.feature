@@ -88,25 +88,25 @@ Feature: Create an Account object
     Examples: 
       | username                | password |
       | batch03@codegator.us.qa | Pa555word |
-#
-  #Scenario Outline: Verify Account Source Field Values are selectable and Saveable
-    #Given I open "chrome" browser
-    #And I go to the "qa" environment
-    #And I enter valid username "<username>"
-    #And I enter valid password "<password>"
-    #When I click the "Login" button
-    #Then I should see the "Accounts" tab
-    #When I click the "new" button
-    #And I enter "BAT-1" value for "acc2" field
-    #Then I select "<Picklist Values>" in the "AccountSource" field
-    #When I click the "save" button
-    #Then I close the browser
-#
-    #Examples: 
-      #| username                | password | Picklist Values  |
-      #| batch03@codegator.us.qa | Pa555word | --None--					|
-      #| batch03@codegator.us.qa | Pa555word | Web              |
-      #| batch03@codegator.us.qa | Pa555word | Phone Inquiry    |
-      #| batch03@codegator.us.qa | Pa555word | Partner Referral |
-      #| batch03@codegator.us.qa | Pa555word | Purchased List   |
-      #| batch03@codegator.us.qa | Pa555word | Other            |
+
+  Scenario Outline: Verify Account Source Field Values are selectable and Saveable
+    Given I open "chrome" browser
+    And I go to the "qa" environment
+    And I enter valid username "<username>"
+    And I enter valid password "<password>"
+    When I click the "Login" button
+    Then I should see the "Accounts" tab
+    When I click the "new" button
+    And I enter "BAT-1" value for "acc2" field
+    Then I select "<Picklist Values>" in the "AccountSource" field
+    When I click the "save" button
+    Then I close the browser
+
+    Examples: 
+      | username                | password | Picklist Values  |
+      | batch03@codegator.us.qa | Pa555word | --None--					|
+      | batch03@codegator.us.qa | Pa555word | Web              |
+      | batch03@codegator.us.qa | Pa555word | Phone Inquiry    |
+      | batch03@codegator.us.qa | Pa555word | Partner Referral |
+      | batch03@codegator.us.qa | Pa555word | Purchased List   |
+      | batch03@codegator.us.qa | Pa555word | Other            |
