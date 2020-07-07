@@ -41,20 +41,20 @@ Feature: Create an Account object
   | username                | password |
   | batch03@codegator.us.qa | Pa555word |
   
-  #Scenario Outline: Verify Account Source Field is created
-    #Given I open "chrome" browser
-    #And I go to the "qa" environment
-    #And I enter valid username "<username>"
-    #And I enter valid password "<password>"
-    #When I click the "Login" button
-    #Then I should see the "Accounts" tab
-    #When I click the "new" button
-    #Then I should see the "AccountSource" field
-    #Then I close the browser
-#
-    #Examples: 
-      #| username                | password |
-      #| batch03@codegator.us.qa | Pa555word |
+  Scenario Outline: Verify Account Source Field is created
+    Given I open "chrome" browser
+    And I go to the "qa" environment
+    And I enter valid username "<username>"
+    And I enter valid password "<password>"
+    When I click the "Login" button
+    Then I should see the "Accounts" tab
+    When I click the "new" button
+    Then I should see the "AccountSource" field
+    Then I close the browser
+
+    Examples: 
+      | username                | password |
+      | batch03@codegator.us.qa | Pa555word |
 #
   #Scenario Outline: Verify Account Source Field is not required
     #Given I open "chrome" browser
