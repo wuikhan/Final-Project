@@ -1,9 +1,16 @@
 package stepDefinition;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -75,4 +82,24 @@ public class Accounts extends BaseClass {
 	public void i_quit() {
 		driver.quit();
 	}
+
+	@Then("^I should see the following values for \"([^\"]*)\" field$")
+	public void i_should_see_the_following_values_for_field(String fieldName, DataTable values) {
+
+		List<List<String>> rows = values.asLists(String.class);
+
+		WebElement val = driver.findElement(By.name(fieldName));
+		Select sel = new Select(val);
+		List<WebElement> opt = sel.getOptions();
+
+		for (int i = 0; i < rows.size(); i++) {
+			List<String> value = rows.get(i);
+			for (String va1l : value) {
+				Assert.assertEquals(va1l, opt.get(i).getText());
+			}
+
+		}
+
+	}
+
 }
