@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.DataTable;
@@ -100,6 +102,24 @@ public class Accounts extends BaseClass {
 
 		}
 
+	}
+	@When("^I click the accounts dropdown$")
+	public void i_click_the_accounts_dropdown() {
+	   driver.findElement(By.xpath("//span[@class='triggerLinkText selectedListView uiOutputText']")).click();
+	}
+
+	@When("^I select All Accounts$")
+	public void i_select_All_Accounts() throws Throwable {
+	   Actions a = new Actions(driver);
+	   a.moveToElement(driver.findElement(By.linkText("All Accounts"))).click().perform();
+	}
+	
+	@Then("^record matches with the excelsheet$")
+	public void record_matches_with_the_excelsheet() throws IOException {
+	   Object[][] dta = readDataFromExcel("/data/Account.csv",0);
+	   
+	   
+	   
 	}
 
 }

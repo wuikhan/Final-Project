@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,8 +23,11 @@ public class BaseClass {
 		String osName = System.getProperty("os.name");
 		if (osName.equalsIgnoreCase("Mac OS X")) {
 			if (browserName.equalsIgnoreCase("Chrome")) {
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver");
-				driver = new ChromeDriver();
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver2");
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--disable-notifications");
+
+			 driver = new ChromeDriver(options);
 			}
 		} else if (osName.equals("Windows 10")) {
 			if (browserName.equalsIgnoreCase("Chrome")) {

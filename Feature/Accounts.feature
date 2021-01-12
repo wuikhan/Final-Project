@@ -1,6 +1,25 @@
 Feature: Create an Account object 
 	As an authenticated user, I should be able to create an account record
 
+
+@test 
+Scenario Outline: Create and Verify Account record 
+	Given I open "chrome" browser 
+	And I go to the "qa" environment 
+	And I enter valid username "<username>" 
+	And I enter valid password "<password>" 
+	When I click the "Login" button 
+	And I verify the logo 
+	And I click the accounts dropdown
+	And I select All Accounts
+	Then record matches with the excelsheet
+	
+	
+	Examples: 
+		| username                | password |
+		|wuikhan@gmail.com.batchfourstandard| pakistan1|
+
+
 Scenario Outline: Create and Verify Account record 
 	Given I open "chrome" browser 
 	And I go to the "qa" environment 
@@ -20,7 +39,7 @@ Scenario Outline: Create and Verify Account record
 		| username                | password |
 		| test.user@gmail.com.test | Pa55word |
 		
-@test 
+
 Scenario Outline: Create and Verify Account record 
 	Given I open "chrome" browser 
 	And I go to the "qa" environment 
